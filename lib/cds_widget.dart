@@ -51,14 +51,44 @@ class _CDSWidgetState extends State<CDSWidget> {
             SizedBox(
               width: 8.0,
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: TextField(
-                controller: _messageController,
-                decoration: InputDecoration(
-                  hintText: 'Enter a message',
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10)),
+
+            Expanded(
+
+              child: Padding(
+
+                padding: const EdgeInsets.all(8.0),
+                child: Padding(
+                  padding: const EdgeInsets.all(5.0),
+                  child: TextField(
+                    cursorColor: Colors.white,
+                    style:TextStyle(
+                      fontSize: 15,
+                      color: Colors.white,
+                    ),
+                    controller: _messageController,
+                    decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        //Outline border type for TextFeild
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                          borderSide: BorderSide(
+                            color: Colors.orange,
+                            width: 2,
+                          )),
+                      focusedBorder: OutlineInputBorder(
+                        //Outline border type for TextFeild
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                          borderSide: BorderSide(
+                            color: Colors.orange,
+                            width: 2,
+                          )),
+                      hintText: ' Enter Message',
+                      hintStyle: TextStyle(
+                        fontSize: 15,
+                        color: Colors.white60,
+                      ),
+                    ),
+                    keyboardType: TextInputType.text,
+                  ),
                 ),
               ),
             ),
@@ -69,12 +99,12 @@ class _CDSWidgetState extends State<CDSWidget> {
               onPressed: () {
                 _udpTest.send(_messageController.text);
               },
-              child: Text(
-                'Send',
-                style: TextStyle(
-                  color: Colors.white,
-                ),
-              ),
+              child: Text('Send',
+                  style: TextStyle(
+                    fontSize: 17,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.orange,
+                  )),
             )
           ],
         )
